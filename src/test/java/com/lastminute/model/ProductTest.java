@@ -13,7 +13,7 @@ class ProductTest {
     @DisplayName("Test product structure")
     @Test
     void productStructure() {
-        Assertions.assertThrows(IllegalProductException.class, () -> {
+        Assertions.assertThrows(NullPointerException.class, () -> {
             new Product(Type.BOOK, null, new BigDecimal("12.99"), 1, true);
         });
 
