@@ -43,7 +43,8 @@ public class ReceiptServiceLambda {
     }
 
     /**
-     * Map product information to taxes pair object, that contains information about taxes and full amount paid per product.
+     * Maps {@link ProductInfo product information} to {@link TaxesPair taxes pair object},
+     * which contains information about taxes and full paid amount per product.
      *
      * @param productInfo product information
      * @return taxes pair object
@@ -57,7 +58,7 @@ public class ReceiptServiceLambda {
     }
 
     /**
-     * Function that represent the rule of calculating taxes for different products.
+     * Function that represents the rule of calculating taxes for different products.
      */
     static Function<Product, ProductInfo> taxesVisitor = new LambdaVisitor<ProductInfo>()
             .on(Type.BOOK).then(ReceiptServiceLambda::exemptPairTaxes)
@@ -110,7 +111,7 @@ public class ReceiptServiceLambda {
     }
 
     /**
-     * Helper method to provide import taxes percentage for a given product.
+     * Helper method that returns import taxes percentage for a given product.
      *
      * @param product product on which texes should be applied
      * @return applied % of taxes
